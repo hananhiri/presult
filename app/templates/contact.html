@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block meta %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Us | {{ config['SITE_NAME'] }}">
+<meta name="keywords" content="ebooks, pdf, digital book, document share">
+<meta name="author" content="pdfresult.com">
+{% endblock %}
+
+{% block content %}
+      
+      <!-- BEGIN .content -->
+      <div class="content">
+        
+        <!-- BEGIN .wrapper -->
+        <div class="wrapper">
+
+          <div class="main-content">
+
+            <div class="full-width">
+
+              <div class="block">
+                <div class="block-title">
+                  <a href="index.html" class="right">Back to homepage</a>
+                  <h2>Contact Us</h2>
+                </div>
+                <div class="block-content">          
+                  <div class="paragraph-row">
+                    <div class="column6">
+                      <h2>Who Are We ?</h2>
+                      <p></p>
+                      <h2>And What Do We Eat ?</h2>
+                      <p></p>
+                    </div>
+                    <div class="column6">
+                      <div id="writecomment">
+
+                        <form action="#" method="get">
+
+                          <!-- <div class="coloralert" style="background: #a12717;">
+                            <p>Error Occurred!</p>
+                            <a href="#close-alert" class="icon-text">&#10006;</a>
+                          </div> -->
+                          <!-- <div class="coloralert" style="background: #68a117;">
+                            <p>Success!</p>
+                            <a href="#close-alert" class="icon-text">&#10006;</a>
+                          </div> -->
+
+                          <p class="contact-form-user">
+                            <label for="c_name">Nickname<span class="required">*</span></label>
+                            <input type="text" placeholder="Nickname" name="c_name" id="c_name" />
+                          </p>
+                          <p class="contact-form-email">
+                            <label for="c_email">E-mail<span class="required">*</span></label>
+                            <input type="text" placeholder="E-mail" name="c_email" id="c_email" />
+                          </p>
+                          <p class="contact-form-message">
+                            <label for="c_message">Comment<span class="required">*</span></label>
+                            <textarea name="c_message" placeholder="Your message.." id="c_message"></textarea>
+                          </p>
+                          <p><input type="submit" class="styled-button" value="Send a message" /></p>
+                        </form>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+            </div>
+
+            <div class="clear-float"></div>
+
+          </div>
+          
+        <!-- END .wrapper -->
+        </div>
+        
+      <!-- BEGIN .content -->
+      </div>
+{% endblock %}

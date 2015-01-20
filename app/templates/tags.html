@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tag|replace("-", " ")|title }}{% endblock %}
+
+{% block meta %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ meta_desc }} | {{ config['SITE_NAME'] }}">
+<meta name="keywords" content="{{ meta_key }}, ebooks, pdf, digital book, document share">
+<meta name="author" content="pdfresult.com">
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ tag|replace("-", " ") }}" />
+<meta property="og:description" content="{{ meta_desc }}" />
+<meta property="og:url" content="/tag/{{ tag|slug }}" />
+<meta property="og:site_name" content="ebooks and pdf curator" />
+
+{% for m in meta_key_tags %}
+<meta property="article:tag" content="{{ m }}" />
+{% endfor %}
+<meta property="article:section" content="{{ meta_key_cat }}" />
+<meta property="article:published_time" content="{{ data[0]['added'] }}" />
+{% endblock %}
+
+{% block content %}
+            
+            <!-- BEGIN .content -->
+            <div class="content">
+                
+                <!-- BEGIN .wrapper -->
+                <div class="wrapper">
+                    
+                    <div class="ad-banner">
+                        <a href="contact-us.html" class="ad-link top"><span class="icon-text">&#9662;</span>Advertisement<span class="icon-text">&#9662;</span></a>
+                        <a href="#" target="_blank"><img src="/static/images/no-banner-728x90.jpg" alt="" /></a>
+                    </div>
+{#
+                    <div class="breaking-news">
+                        <span class="the-title">Breaking News</span>
+                        <ul>
+                            <li><a href="post.html">Suscipit partiendo comprehensam</a></li>
+                            <li><a href="post.html">Ancillae antiopam consectetuer</a></li>
+                            <li><a href="post.html">Nam omnis maiestatis</a></li>
+                            <li><a href="post.html">Eum at alii dico sensibus</a></li>
+                            <li><a href="post.html">Homero omnesque reformidans</a></li>
+                            <li><a href="post.html">Cu sonet</a></li>
+                        </ul>
+                    </div>
+#}
+                    <div class="main-content">
+
+                        <!-- BEGIN .main-page -->
+                        <div class="main-page left">
+
+                            <!-- BEGIN .double-block -->
+                            <div class="double-block">
+                                
+                                <!-- BEGIN .content-block -->
+                                <div class="content-block main left">
+                                    
+                                    <div class="block">
+                                        <div class="block-title">
+                                            <h2>Related To </h2>
+                                        </div>
+                                        <div class="block-content">
+                                            
+{% for d in data %}
+
+                                            <div class="article-big no-image">
+                                                <div class="article-content">
+                                                    <h2>{{ d['title'] }}</h2>
+                                                    <span class="meta">
+                                                        <span class="icon-text">&#128100;</span>Hanan Hiri
+                                                        <span class="icon-text">&#128340;</span>{{ data[0]['added']|humanize }}
+                                                    </span>
+                                                    <p>{{ d['snippet'] }}...</p>
+                                                    <span class="meta">
+                                                        <a href="/read/{{ d['_id'] }}/{{ d['title']|slug }}" class="more">Read More<span class="icon-text">&#9656;</span></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+{% endfor %}
+
+
+{#
+                                            <div class="pagination">
+                                                <a href="#" class="prev page-numbers"><span class="icon-text left">&#9666;</span>Previous Page</a>
+                                                <a href="#" class="page-numbers">1</a>
+                                                <a href="#" class="page-numbers current">2</a>
+                                                <a href="#" class="page-numbers">3</a>
+                                                <a href="#" class="page-numbers">4</a>
+                                                <a href="#" class="page-numbers">6</a>
+                                                <a href="#" class="next page-numbers">Next Page<span class="icon-text right">&#9656;</span></a>
+                                            </div>
+#}
+                                        </div>
+                                    </div>
+
+                                <!-- END .content-block -->
+                                </div>
+
+
+                                <!-- BEGIN .content-block -->
+                                <div class="content-block right">
+{#                                  
+                                    <div class="block">
+                                        <h2 class="list-title">Most Week Ebook</h2>
+                                        <ul class="article-list">
+                                            <li><a href="post.html">Solet percipit euod tractatos percipit euod tractatos</a><a href="post.html#comments" class="h-comment">32</a><span class="meta-date">7.Oct</span></li>
+                                            <li><a href="post.html">Ei sonet atomorum meiquo singulis invenire nesit</a><a href="post.html#comments" class="h-comment">84</a><span class="meta-date">7.Oct</span></li>
+                                            <li><a href="post.html">Lus eleifend hom pertinacia hom pertinacia</a><a href="post.html#comments" class="h-comment">72</a><span class="meta-date">6.Oct</span></li>
+                                            <li><a href="post.html">Pri viderer recteque exp inimicusis verear minimum vim</a><a href="post.html#comments" class="h-comment">136</a><span class="meta-date">6.Oct</span></li>
+                                            <li><a href="post.html">Ocurr comprehensam recteq comprehensam recteq</a><a href="post.html#comments" class="h-comment">8</a><span class="meta-date">6.Oct</span></li>
+                                            <li><a href="post.html">Ut oratio viderer evertim</a><a href="post.html#comments" class="h-comment">92</a><span class="meta-date">5.Oct</span></li>
+                                        </ul>
+                                        <a href="blog.html" class="more">Read More</a>
+                                    </div>
+#}                                  
+                                    
+                                    <div class="block">
+                                        <h2 class="list-title" style="color: #c42b20;border-bottom: 2px solid #c42b20;">Most Week Ebook</h2>
+{#
+                                        <ul class="article-list">
+{% for d in data %}                  
+                                            <li>{{ d['title'] }} <a href="/read/{{ d['_id'] }}/{{ d['title']|slug }}" class="h-comment">Read ...</a></li>
+{% endfor %}  
+                                        </ul>
+#}
+                                    </div>
+                                    
+                                    <div class="block">
+                                        <div class="banner">
+                                            <a href="#" target="_blank"><img src="/static/images/no-banner-200x200.jpg" alt="" /></a>
+                                            <a href="contact-us.html" class="ad-link"><span class="icon-text">&#9652;</span>Advertisement<span class="icon-text">&#9652;</span></a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="block">
+                                        <h2 class="list-title" style="color: #dd8229;border-bottom: 2px solid #dd8229;">Labeled</h2>
+                                        <ul class="article-block">
+{% for rel in related_data %}
+                                            <li>
+                                                <div class="article-photo">
+                                                    <a href="/tags/{{ rel['term']|slug }}" class="hover-effect"><img src="/static/images/photos/image-1.jpg" alt="" /></a>
+                                                </div>
+                                                <div class="article-content">
+                                                    <h4>{{ rel['term']|truncate(40) }}</h4>
+
+                                                </div>
+                                            </li>
+{% endfor %} 
+                                        </ul>
+                                    </div>
+
+                                <!-- END .content-block -->
+                                </div>
+
+                            <!-- END .double-block -->
+                            </div>
+
+                        <!-- END .main-page -->
+                        </div>
+                        
+                        <!-- BEGIN .main-sidebar -->
+                        <div class="main-sidebar right">
+                            
+                            <!-- BEGIN .widget -->
+                            <div class="widget">
+                                <a href="#" target="_blank"><img src="/static/images/no-banner-300x250.jpg" alt="" /></a>
+                                <a href="contact-us.html" class="ad-link"><span class="icon-text">&#9652;</span>Advertisement<span class="icon-text">&#9652;</span></a>
+                            <!-- END .widget -->
+                            </div>
+                            
+                            <!-- BEGIN .widget -->
+                            <div class="widget">
+                                <h3>Socialize</h3>
+                                <div class="widget-social">
+                                    <div class="social-bar">
+                                        <a href="#" class="social-icon"><i class="number">1.2m</i><span class="facebook">Facebook</span></a>
+                                        <a href="#" class="social-icon"><i class="number">2.6k</i><span class="twitter">Twitter</span></a>
+                                        <a href="#" class="social-icon"><i class="number">1.4k</i><span class="google">Google+</span></a>
+                                        <a href="#" class="social-icon"><i class="number">823</i><span class="linkedin">Linkedin</span></a>
+                                    </div>
+                                    <p>Suscipit partiendo comprehensam ne eos mel, nam omnis maiestatis no. Eum at reformidans ius, cu.</p>
+                                </div>
+                            <!-- END .widget -->
+                            </div>
+                            
+                            <!-- BEGIN .widget -->
+{#
+                            <div class="widget">
+                                <h3>Latest Articles</h3>
+                                <div class="widget-articles">
+                                    <ul>
+                                        <li>
+                                            <div class="article-photo">
+                                                <a href="post.html" class="hover-effect"><img src="/static/images/photos/image-1.jpg" alt="" /></a>
+                                            </div>
+                                            <div class="article-content">
+                                                <h4><a href="post.html">Debitis minimum vituperata mei no adipiscing intellegam</a></h4>
+                                                <span class="meta">
+                                                    <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="article-photo">
+                                                <a href="post.html" class="hover-effect"><img src="/static/images/photos/image-2.jpg" alt="" /></a>
+                                            </div>
+                                            <div class="article-content">
+                                                <h4><a href="post.html">Nec option veritus ullamcorper cu ea eam cibo quaestio te eros</a><a href="post.html#comments" class="h-comment">74</a></h4>
+                                                <span class="meta">
+                                                    <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="article-photo">
+                                                <a href="post.html" class="hover-effect"><img src="/static/images/photos/image-3.jpg" alt="" /></a>
+                                            </div>
+                                            <div class="article-content">
+                                                <h4><a href="post.html">Ea mea fugit appareat quaestio delectus pericula id sea</a><a href="post.html#comments" class="h-comment">39</a></h4>
+                                                <span class="meta">
+                                                    <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="article-photo">
+                                                <a href="post.html" class="hover-effect"><img src="/static/images/photos/image-4.jpg" alt="" /></a>
+                                            </div>
+                                            <div class="article-content">
+                                                <h4><a href="post.html">Ex cibo ullum nostrum per quo cu utamur fabulas</a><a href="post.html#comments" class="h-comment">99</a></h4>
+                                                <span class="meta">
+                                                    <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="article-photo">
+                                                <a href="post.html" class="hover-effect"><img src="/static/images/photos/image-5.jpg" alt="" /></a>
+                                            </div>
+                                            <div class="article-content">
+                                                <h4><a href="post.html">Debitis minimum vituperata mei no adipiscing intellegam</a><a href="post.html#comments" class="h-comment">201</a></h4>
+                                                <span class="meta">
+                                                    <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <!-- END .widget -->
+                            </div>
+#}
+                            <!-- BEGIN .widget -->
+                            <div class="widget">
+                                <h3>Random Choice</h3>
+{#
+                                <div class="widget-comments">
+                                    <ul>
+{% for d in data %}
+                                        <li>
+                                            <div class="comment-photo">
+                                                <span class="hover-effect"><img src="/static/images/photos/avatar-1.jpg" alt="" /></span>
+                                            </div>
+                                            <div class="comment-content">
+                                                <h3>{{ d['title'] }}</h3>
+                                                <p>{{ d['snippet'] }}...</p>
+                                                <span class="meta">
+                                                    <a href="/read/{{ d['_id'] }}/{{ d['title']|slug }}"><span class="icon-text">&#59212;</span>View Article</a>
+                                                </span>
+                                            </div>
+                                        </li>
+{% endfor %}
+                                    </ul>
+                                </div>
+#}
+                            <!-- END .widget -->
+                            </div>
+
+                        <!-- END .main-sidebar -->
+                        </div>
+
+                        <div class="clear-float"></div>
+
+                    </div>
+                    
+                <!-- END .wrapper -->
+                </div>
+                
+            <!-- BEGIN .content -->
+            </div>
+{% endblock %}
